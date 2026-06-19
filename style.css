@@ -1,0 +1,995 @@
+/* 1. TRỘN BẢNG MÀU THẦN KỲ (VARIABLES) 🌸 */
+/* Khai báo :root nghĩa là mình pha sẵn các thùng sơn ở đây, sau này phòng nào cần chỉ việc gọi tên màu ra quét lên thôi, nhàn lắm á! */
+:root {
+    --pink-sakura: #ffb7c5;       /* Màu hồng ngọt ngào của chị */
+    --pink-light: #fff0f3;        /* Hồng kẹo bông nhạt làm màu nền tảng */
+    --fubuki-blue: #aae0ec;       /* Xanh ngọc mộng mơ của cáo Fubuki */
+    --starlight-yellow: #fff275;  /* Vàng ánh sao làm điểm nhấn */
+    --text-dark: #4a3b40;         /* Màu chữ nâu đậm (nhìn ấm áp hơn màu đen xì) */
+    --white: #ffffff;
+}
+
+/* 2. QUÉT DỌN LỀ MẶC ĐỊNH & CÀI ĐẶT FONT CHỮ */
+/* Dấu * đại diện cho "tất cả mọi thứ trên web" */
+* {
+    margin: 0; /* Xóa khoảng cách thừa bên ngoài */
+    padding: 0; /* Xóa khoảng cách thừa bên trong */
+    box-sizing: border-box; /* Công thức giúp tính toán viền hộp không bị méo */
+}
+
+/* 3. LỚP SƠN NỀN CHO TOÀN BỘ NGÔI NHÀ */
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif; /* Phông chữ tròn trịa, hiện đại */
+    color: var(--text-dark); /* Gọi thùng sơn chữ nâu đậm ra xài */
+    background-color: var(--pink-light); /* Gọi thùng sơn hồng kẹo bông ra quét làm nền */
+    overflow-x: hidden; /* Dấu cái thanh cuộn ngang xấu xí đi */
+}
+
+/* ========================================= */
+/* 4. ĐỊNH HÌNH THANH ĐIỀU HƯỚNG (SIDEBAR)    */
+/* ========================================= */
+#sidebar {
+    position: fixed; /* Phép thuật đóng đinh menu đứng im một chỗ */
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%); /* Tự động căn giữa theo chiều dọc màn hình */
+    width: 220px; /* Chốt cứng chiều rộng để không bị phình to */
+    background-color: rgba(255, 255, 255, 0.85); /* Nền trắng trong suốt mờ mờ */
+    padding: 25px 15px;
+    border-radius: 24px; /* Bo góc tròn xoe */
+    box-shadow: 0 8px 24px rgba(255, 183, 197, 0.4); /* Đổ bóng màu hồng Sakura */
+    border: 2px solid var(--pink-sakura);
+}
+
+/* Xóa mấy cái dấu chấm tròn xấu xí của danh sách */
+#sidebar ul {
+    list-style: none;
+}
+
+/* Tạo khoảng cách cho các nút bấm thở */
+#sidebar ul li {
+    margin: 18px 0;
+}
+
+/* Trang trí các đường link thành nút bấm xịn xò */
+#sidebar ul li a {
+    text-decoration: none; /* Xóa đường gạch chân mặc định của link */
+    color: var(--text-dark);
+    font-weight: bold;
+    padding: 10px 16px;
+    border-radius: 14px;
+    display: block;
+    transition: all 0.3s ease; /* Phép thuật giúp hiệu ứng mượt mà */
+}
+
+/* Hiệu ứng nảy lên và đổi màu khi chị di chuột vào nút */
+#sidebar ul li a:hover {
+    background-color: var(--pink-sakura);
+    color: var(--white);
+    transform: scale(1.08); /* Phóng to ra một xíu */
+}
+
+/* ========================================= */
+/* 5. ĐẨY KHÔNG GIAN CHÍNH SANG BÊN PHẢI     */
+/* ========================================= */
+main {
+    margin-left: 280px; /* Lùi sang phải 280px để chừa chỗ cho Sidebar */
+    max-width: 1000px; /* Khóa độ rộng để lúc zoom nhỏ web không bị vỡ */
+    padding-top: 40px;
+}
+
+/* ========================================= */
+/* 6. THIẾT KẾ CÁC CĂN PHÒNG (SECTION CHUNG) */
+/* ========================================= */
+section {
+    min-height: 85vh; /* Mỗi phòng chiếm khoảng 85% chiều cao màn hình */
+    margin-bottom: 60px; /* Tạo khoảng cách với phòng bên dưới */
+    padding: 40px; /* Đẩy chữ cách xa viền tường cho thoáng */
+    background-color: var(--white); /* Sơn tường màu trắng cho sáng sủa */
+    border-radius: 28px; /* Bo góc tường cho mềm mại */
+    border: 2px dashed var(--fubuki-blue); /* Viền đứt nét màu xanh ngọc */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03); /* Đổ bóng nhẹ để phòng nổi lên khỏi nền web */
+}
+
+/* Trang trí các tiêu đề chính (h2) của mỗi phòng */
+h2 {
+    font-size: 24px;
+    border-left: 6px solid var(--pink-sakura); /* Vệt sơn màu hồng Sakura bên trái tiêu đề */
+    padding-left: 12px;
+    margin-bottom: 25px;
+}
+
+/* ========================================= */
+/* 7. TRANG TRÍ RIÊNG TRANG CHỦ (#home)      */
+/* ========================================= */
+.banner {
+    /* Trộn 2 màu từ góc chéo (135 độ) tạo hiệu ứng chuyển sắc cực nghệ */
+    background: linear-gradient(135deg, var(--pink-sakura), var(--fubuki-blue)); 
+    padding: 80px 40px;
+    border-radius: 20px;
+    color: var(--white);
+    text-align: center; /* Căn chữ ra chính giữa */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15); /* Làm bóng chữ cho dễ đọc trên nền màu */
+}
+
+.status {
+    margin-top: 30px;
+    padding: 18px;
+    background-color: #fffde7; /* Nền vàng nhạt ấm áp */
+    border-radius: 14px;
+    border-left: 4px solid var(--starlight-yellow); /* Vạch Vàng ánh sao làm điểm nhấn */
+    font-style: italic; /* Chữ in nghiêng cho tâm trạng */
+}
+
+/* ========================================= */
+/* 8. THIẾT KẾ PHÒNG VỀ MÌNH (#about)        */
+/* ========================================= */
+.about-layout {
+    display: flex; /* 🪄 Phép thuật Flexbox: Kéo các hộp đứng dàn hàng ngang */
+    gap: 40px; /* Tạo khoảng trống 40px ở giữa Avatar và Bảng hồ sơ cho dễ thở */
+    align-items: center; /* Căn cho mọi thứ đứng thẳng hàng ở giữa theo chiều dọc */
+    margin-bottom: 30px;
+}
+
+/* --- NỬA TRÁI: KHUNG AVATAR --- */
+.avatar-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#about-avatar-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%; /* Bùa chú cắt ảnh thành hình tròn xoe */
+    object-fit: cover; /* Ép ảnh vừa khít khung mà không bị méo */
+    border: 4px solid var(--pink-sakura); /* Viền màu hồng Sakura rực rỡ */
+    box-shadow: 0 8px 20px rgba(255, 183, 197, 0.4); /* Đổ bóng lấp lánh ở dưới */
+}
+
+.edit-hint {
+    font-size: 13px;
+    color: #8c7379;
+    font-style: italic;
+}
+
+/* --- NỬA PHẢI: BẢNG HỒ SƠ (ID CARD) --- */
+.profile-side {
+    flex: 1; /* Lệnh này bảo cái bảng: "Chỗ trống còn lại bao nhiêu, mày phình to ra chiếm hết cho tao!" */
+    background: linear-gradient(135deg, #fffafd, #fff5f7); /* Nền pha hồng siêu nhạt cực sang */
+    padding: 25px 30px;
+    border-radius: 20px;
+    border: 2px dashed var(--fubuki-blue);
+    box-shadow: 0 4px 12px rgba(255, 183, 197, 0.2);
+}
+
+.profile-side h3 {
+    margin-top: 0;
+    color: var(--text-dark);
+    border-bottom: 2px dashed var(--pink-sakura); /* Kẻ một đường gạch đứt dưới chữ "Hồ sơ tác giả" */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.profile-list {
+    list-style: none; /* Xóa sạch mấy cái dấu chấm tròn đầu dòng */
+}
+
+.profile-list li {
+    margin: 12px 0;
+    font-size: 16px;
+}
+
+/* Khóa độ rộng của mấy chữ "Họ và tên", "Ngày sinh"... để nội dung phía sau thẳng hàng tăm tắp */
+.profile-list strong {
+    display: inline-block;
+    width: 120px; 
+    color: #8c7379;
+}
+
+/* --- PHẦN TÂM SỰ BÊN DƯỚI ID CARD --- */
+.intro-box {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 18px;
+    border-left: 5px solid var(--fubuki-blue); /* Kẻ một vạch xanh ngọc to bự ở bên trái cho nổi bật */
+}
+
+.intro-box p {
+    margin: 10px 0;
+    line-height: 1.6; /* Giãn khoảng cách các dòng chữ ra cho người ta dễ đọc */
+}
+
+/* ========================================= */
+/* 9. THIẾT KẾ THẾ GIỚI SÁNG TÁC (#works)    */
+/* ========================================= */
+
+/* --- KHUNG 1: TRUNG TÂM ĐIỀU KHIỂN --- */
+.works-control {
+    display: flex;
+    justify-content: space-between; /* Đẩy 2 nút sang 2 bên, chữ ở giữa */
+    align-items: center;
+    background: linear-gradient(135deg, var(--pink-sakura), var(--fubuki-blue));
+    padding: 20px 30px;
+    border-radius: 18px;
+    color: var(--white);
+    margin-bottom: 35px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.story-info {
+    text-align: center;
+    flex: 1;
+    padding: 0 20px;
+}
+
+.story-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 28px;
+    border: none; /* Xóa vạch hồng mặc định của h3 */
+    padding: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nav-story-btn {
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 2px solid var(--white);
+    color: var(--white);
+    padding: 10px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.nav-story-btn:hover {
+    background-color: var(--white);
+    color: var(--text-dark);
+    transform: scale(1.05);
+}
+
+/* --- KHUNG 2: KHU VỰC ĐỌC THỬ --- */
+.works-preview {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.cover-side {
+    flex: 0 0 220px; /* Chốt cứng chiều rộng khu vực để bìa */
+    text-align: center;
+}
+
+#story-cover {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+#story-cover:hover {
+    transform: translateY(-8px); /* Bìa truyện sẽ nhảy lên một xíu khi di chuột vào */
+}
+
+.click-hint {
+    font-size: 13px;
+    color: #8c7379;
+    font-style: italic;
+    margin-top: 12px;
+}
+
+.demo-chapters {
+    flex: 1; /* Khu vực chương sẽ phình to chiếm hết chỗ trống còn lại */
+    background-color: var(--pink-light);
+    padding: 25px;
+    border-radius: 18px;
+    border: 2px dashed var(--pink-sakura);
+}
+
+.chapter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia thành 2 cột đều nhau */
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.chapter-btn, .wiki-file-btn {
+    background-color: var(--white);
+    border: 2px solid #f0eaec;
+    padding: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--text-dark);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.chapter-btn:hover, .wiki-file-btn:hover {
+    border-color: var(--fubuki-blue);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(170, 224, 236, 0.3); /* Phát sáng màu xanh ngọc */
+}
+
+/* --- KHUNG 3: BÁCH KHOA TOÀN THƯ --- */
+.works-wiki {
+    background-color: #f7fcff; /* Nền xanh lam cực nhạt */
+    padding: 30px;
+    border-radius: 20px;
+    border-left: 6px solid var(--fubuki-blue);
+}
+
+.wiki-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ma thuật tự động xuống dòng nếu thiếu chỗ */
+    gap: 18px;
+    margin-top: 20px;
+}
+
+/* Làm nổi bật ô Hồ sơ nhân vật */
+.character-file {
+    background-color: #fffde7;
+    border-color: var(--starlight-yellow);
+}
+
+.file-icon {
+    font-size: 20px;
+}
+
+/* ========================================= */
+/* 10. THIẾT KẾ PHÒNG DỰ ÁN (#projects)      */
+/* ========================================= */
+.project-showcase {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 50px;
+    background-color: #fffafd; /* Nền hồng siêu nhạt nhẹ nhàng */
+    padding: 35px;
+    border-radius: 24px;
+    border: 2px solid #fff0f3;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng nhấc nhẹ cả hộp lên khi di chuột vào */
+.project-showcase:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 183, 197, 0.25);
+}
+
+/* Phép thuật đảo ngược vị trí: Tranh sang trái, Chữ sang phải cho đỡ nhàm chán */
+.project-showcase.reversed {
+    flex-direction: row-reverse;
+}
+
+.project-info {
+    flex: 1.2; /* Cho phần chữ rộng rãi hơn một xíu */
+}
+
+.project-info h3 {
+    font-size: 22px;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    border: none; /* Xóa vạch hồng mặc định của h3 chung */
+    padding: 0;
+}
+
+.project-info p {
+    line-height: 1.6;
+    color: #615055;
+}
+
+/* --- KHUNG TRIỂN LÃM TRANH NGHỆ THUẬT --- */
+.project-gallery {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.project-img-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    border-radius: 16px;
+    overflow: hidden;
+    /* Tạo hiệu ứng khung tranh treo tường lộng lẫy */
+    border: 8px solid var(--white);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: all 0.4s ease;
+}
+
+.project-img-btn img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Hiệu ứng tranh nghiêng nghệ thuật và zoom nhẹ ảnh khi di chuột qua */
+.project-img-btn:hover {
+    border-color: var(--pink-sakura);
+    transform: scale(1.03) rotate(1.5deg); /* Nghiêng nhẹ 1.5 độ xinh xỉu */
+}
+
+.project-img-btn:hover img {
+    transform: scale(1.06); /* Ảnh bên trong tự phóng to lên */
+}
+
+/* ========================================= */
+/* 11. PHÉP THUẬT CHO POPUP (MODAL) DEMO     */
+/* ========================================= */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(74, 59, 64, 0.45); /* Lớp nền tối mờ phía sau */
+    backdrop-filter: blur(6px); /* Phép thuật làm mờ cảnh nền phía sau cực ảo diệu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Luôn luôn nổi lên trên cùng tất cả mọi thứ */
+}
+
+.project-modal {
+    background-color: var(--white);
+    width: 90%;
+    max-width: 720px;
+    padding: 35px;
+    border-radius: 28px;
+    border: 3px solid var(--fubuki-blue); /* Viền xanh ngọc Fubuki */
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    animation: popupPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hiệu ứng nảy mượt mà khi hiện ra */
+}
+
+/* Định nghĩa hiệu ứng nảy nhẹ của Popup */
+@keyframes popupPop {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Nút bấm X để đóng bảng */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 32px;
+    cursor: pointer;
+    color: #bbb;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: var(--pink-sakura);
+}
+
+/* Khung chiếu Video/Ảnh bên trong Popup */
+.demo-media {
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 4px solid var(--pink-light);
+}
+
+.demo-media img {
+    width: 100%;
+    display: block;
+}
+
+/* Nút Link tải/Truy cập ở mép dưới */
+.demo-link-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--fubuki-blue), var(--pink-sakura));
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 50px;
+    margin-top: 10px;
+    box-shadow: 0 5px 15px rgba(170, 224, 236, 0.4);
+    transition: all 0.3s ease;
+}
+
+.demo-link-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 183, 197, 0.6);
+}
+
+/* ========================================= */
+/* 12. THIẾT KẾ BỘ SƯU TẬP (#gallery)        */
+/* ========================================= */
+
+/* --- KHUNG 1 & 2: HÀNG TRÊN CÙNG (Chia đôi) --- */
+.gallery-top-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    align-items: flex-start; /* Phép thuật giúp 2 khung độc lập, không bị kéo dãn bằng nhau */
+}
+
+.gallery-collected, .gallery-artwork {
+    flex: 1; /* Lệnh này giúp 2 khung chia đôi không gian 50/50 */
+    background-color: #fffafd;
+    padding: 25px;
+    border-radius: 20px;
+    border: 2px dashed var(--pink-sakura);
+    transition: all 0.5s ease; /* Hiệu ứng phình to mượt mà sau này JS dùng tới */
+}
+
+/* --- LƯỚI MASONRY (ẢNH SƯU TẦM) --- */
+.masonry-grid {
+    column-count: 2; /* Chia làm 2 cột */
+    column-gap: 15px; /* Khoảng cách giữa 2 cột */
+    margin-top: 15px;
+}
+
+.masonry-item {
+    break-inside: avoid; /* Phép thuật chống việc 1 bức ảnh bị cắt nửa giữa 2 cột */
+    margin-bottom: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.masonry-item img {
+    width: 100%;
+    display: block; /* Xóa khoảng trắng thừa dưới gầm ảnh */
+}
+
+.masonry-item:hover {
+    transform: scale(1.03); /* Phóng to nhẹ khi đưa chuột vào */
+}
+
+/* --- LƯỚI ẢNH TỰ VẼ --- */
+.artwork-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.artwork-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border: 3px solid var(--white);
+}
+
+.artwork-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ép ảnh tự vẽ thành hình vuông vuông vắn vắn */
+    display: block;
+}
+
+/* --- KHUNG 3: RẠP CHIẾU MINI (VIDEO) --- */
+.gallery-video-section {
+    background-color: #f0fbff; /* Nền xanh lam cực nhạt */
+    padding: 30px;
+    border-radius: 20px;
+    border-left: 6px solid var(--fubuki-blue); /* Kẻ vạch xanh ngọc */
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Tự động xuống dòng nếu thiếu chỗ */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.video-item {
+    position: relative; /* Chốt vị trí để đặt nút Play đè lên trên */
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s;
+}
+
+/* Nút Play hồng hồng lơ lửng giữa ảnh */
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Phép toán đẩy nút ra đúng tâm bức ảnh */
+    background-color: rgba(255, 183, 197, 0.9); /* Nền hồng Sakura hơi trong suốt */
+    color: var(--white);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 20px;
+    padding-left: 4px; /* Đẩy cái tam giác ra giữa tâm vòng tròn một chút xíu */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.video-item:hover img {
+    transform: scale(1.05); /* Ảnh nền to ra */
+}
+
+.video-item:hover .play-icon {
+    background-color: var(--pink-sakura);
+    transform: translate(-50%, -50%) scale(1.15); /* Nút Play bật to lên */
+}
+
+/* ========================================= */
+/* 13. THIẾT KẾ NHẬT KÝ FACEBOOK (#facebook) */
+/* ========================================= */
+.fb-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+/* --- KHUNG 1: TRANG CÁ NHÂN (Fake Profile) --- */
+.fb-profile {
+    flex: 0 0 320px; /* Khóa cứng chiều rộng khung Profile */
+    background-color: var(--white);
+    border-radius: 18px;
+    overflow: hidden; /* Cắt gọn những phần dư thừa lòi ra ngoài */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e5e5;
+}
+
+.fb-cover {
+    height: 120px;
+    background-color: var(--pink-sakura); /* Lỡ không có ảnh bìa thì nó màu hồng */
+}
+
+.fb-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fb-avatar-container {
+    display: flex;
+    justify-content: center;
+    margin-top: -50px; /* Phép thuật kéo cái Avatar lấn lên trên nền Ảnh bìa */
+}
+
+.fb-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid var(--white); /* Tạo viền trắng tách biệt với nền */
+    object-fit: cover;
+    background-color: var(--fubuki-blue);
+}
+
+.fb-info {
+    text-align: center;
+    padding: 15px 20px 25px 20px;
+}
+
+.fb-name {
+    margin: 5px 0;
+    font-size: 22px;
+    color: #1c1e21; /* Màu đen tiêu chuẩn của chữ Facebook */
+    border: none;
+    padding: 0;
+}
+
+.fb-bio {
+    color: #65676b; /* Màu xám đặc trưng của Facebook */
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.fb-follow-btn {
+    background-color: #1877f2; /* Xanh dương chuẩn Facebook */
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.fb-follow-btn:hover {
+    background-color: #166fe5;
+}
+
+/* --- KHUNG 2: BẢNG TIN (Feed) --- */
+.fb-feed {
+    flex: 1;
+    background-color: #f0f2f5; /* Nền xám nhạt đặc trưng của News Feed FB */
+    padding: 25px;
+    border-radius: 18px;
+    border: 1px solid #e5e5e5;
+}
+
+.fb-feed h4 {
+    margin-top: 0;
+    color: #1c1e21;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.fb-posts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia 2 cột để chứa 4 bài viết */
+    gap: 20px;
+}
+
+.fb-post-card {
+    background-color: var(--white);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.fb-post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.fb-post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.fb-post-avatar-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--pink-sakura);
+}
+
+.fb-post-author {
+    display: flex;
+    flex-direction: column;
+}
+
+.fb-post-author strong {
+    color: #050505;
+    font-size: 15px;
+}
+
+.fb-post-author span {
+    color: #65676b;
+    font-size: 13px;
+}
+
+.fb-post-content {
+    color: #050505;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* Bài viết ghim */
+.pinned-post {
+    border: 2px solid var(--fubuki-blue);
+    position: relative;
+}
+
+.fb-pin-badge {
+    font-size: 12px;
+    color: #1877f2;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 8px;
+}
+
+/* ========================================= */
+/* 14. THIẾT KẾ TRẠM KẾT NỐI (#links)        */
+/* ========================================= */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 500px; /* Khóa độ rộng để các nút không bị bè ra hai bên quá đà */
+    margin: 0 auto; /* Ma thuật căn giữa toàn bộ danh sách nút vào giữa phòng */
+    margin-top: 30px;
+}
+
+.social-link-btn {
+    display: flex;
+    align-items: center;
+    padding: 16px 25px;
+    border-radius: 18px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: bold;
+    font-size: 18px;
+    background-color: var(--white);
+    border: 2px solid #f0eaec;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+}
+
+.link-icon {
+    font-size: 26px;
+    margin-right: 18px;
+}
+
+/* Hiệu ứng nảy lên và đổi màu viền khi đưa chuột vào nút link */
+.social-link-btn:hover {
+    transform: translateY(-4px);
+    border-color: var(--pink-sakura);
+    box-shadow: 0 8px 20px rgba(255, 183, 197, 0.25);
+}
+
+/* ========================================= */
+/* 15. THƯ MỤC ỨNG DỤNG CUỐI TRANG (FOOTER)  */
+/* ========================================= */
+#app-footer {
+    margin-top: 60px;
+    padding: 50px 20px 40px 20px;
+    background: linear-gradient(to bottom, transparent, #ffe8ec); /* Đổ màu nhạt dần ở cuối trang */
+    border-radius: 50px 50px 0 0; /* Bo tròn mượt mà hai góc phía trên */
+}
+
+.app-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 25px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.app-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #615055;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+/* Biến icon to ra giống biểu tượng App trên điện thoại */
+.app-icon::first-letter {
+    font-size: 32px; 
+}
+
+.app-icon:hover {
+    transform: scale(1.15); /* Phóng to nhẹ khi chỉ chuột vào */
+    color: var(--pink-sakura);
+}
+
+/* ========================================= */
+/* 16. BẢNG POPUP CHỈNH SỬA (CUSTOM MODAL)   */
+/* ========================================= */
+.edit-modal-content {
+    background-color: var(--white); /* Bơm ngay lớp nền trắng tinh tươm */
+    padding: 35px 30px; /* Nhồi thêm bông, đẩy viền ra xa cho chữ dễ thở */
+    border-radius: 24px; /* Bo góc mềm mại mượt mà */
+    max-width: 420px;
+    text-align: center;
+    border: 3px solid var(--pink-sakura);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Phép thuật đổ bóng giúp bảng nổi bần bật lên hẳn */
+}
+
+.edit-input-box {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #f0eaec;
+    border-radius: 12px;
+    font-size: 16px;
+    margin-bottom: 22px;
+    outline: none;
+    transition: all 0.3s;
+    font-family: inherit; /* Cho đồng bộ font chữ chung của nhà mình */
+    background-color: #fafafa;
+}
+
+/* Đổi màu viền sáng lên khi chị click vào để gõ */
+.edit-input-box:focus {
+    border-color: var(--pink-sakura);
+    background-color: var(--white);
+    box-shadow: 0 0 0 4px rgba(255, 183, 197, 0.2);
+}
+
+.edit-btn-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.edit-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.edit-btn:hover {
+    transform: translateY(-3px);
+}
+
+.cancel-btn {
+    background-color: #f0f2f5;
+    color: #65676b;
+}
+
+.cancel-btn:hover {
+    background-color: #e4e6eb;
+}
+
+.save-btn {
+    background-color: var(--pink-sakura);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(255, 183, 197, 0.4);
+}
+
+.save-btn:hover {
+    box-shadow: 0 6px 16px rgba(255, 183, 197, 0.6);
+}
+
+/* ========================================= */
+/* 17. NÚT BÁNH RĂNG & ICON CHỈNH SỬA        */
+/* ========================================= */
+.admin-gear-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    font-size: 28px;
+    background-color: var(--white);
+    border: 3px solid var(--pink-sakura);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 183, 197, 0.4);
+    z-index: 1000; /* Luôn nổi trên cùng */
+    transition: transform 0.4s ease;
+}
+
+.admin-gear-btn:hover {
+    transform: rotate(90deg) scale(1.1); /* Xoay bánh răng khi đưa chuột vào */
+}
+
+/* Nút bút chì mặc định sẽ TÀNG HÌNH */
+.edit-icon {
+    display: none;
+    font-size: 16px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.edit-icon:hover {
+    transform: scale(1.2) translateY(-2px);
+}
+
+/* KHI BẬT CHẾ ĐỘ ADMIN -> BÚT CHÌ MỚI HIỆN RA */
+body.admin-mode .edit-icon {
+    display: inline-block;
+}

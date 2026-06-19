@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Góc Nhỏ Của Ánh Linh</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. THANH ĐIỀU HƯỚNG (SIDEBAR) -->
+    <nav id="sidebar">
+        <ul>
+            <li><a href="#home">Trang chủ</a></li>
+            <li><a href="#about">Về mình</a></li>
+            <li><a href="#works">Thế giới sáng tác</a></li>
+            <li><a href="#projects">Góc dự án</a></li>
+            <li><a href="#gallery">Bộ sưu tập</a></li>
+            <li><a href="#facebook">Nhật ký Facebook</a></li>
+            <li><a href="#links">Trạm kết nối</a></li>
+        </ul>
+    </nav>
+
+    <!-- 2. KHÔNG GIAN NỘI DUNG CHÍNH -->
+    <main id="main-content">
+        
+        <section id="home">
+            <div class="banner">
+                <h1>Chào mừng đến với thế giới nhỏ của Ánh Linh! 🌸</h1>
+            </div>
+            
+            <div class="status">
+                <p>Trạng thái: Đang xây nhà, mọi người chờ xíu nha...</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>Về mình</h2>
+            
+            <div class="about-layout">
+                
+                <div class="avatar-side">
+                    <img id="about-avatar-img" src="https://via.placeholder.com/150/ffb7c5/ffffff?text=Avatar" alt="Avatar của Ánh Linh">
+                    <p class="edit-hint">[Khung Ảnh - Có thể thay đổi sau]</p>
+                </div>
+
+                <div class="profile-side">
+                    <h3>🌸 Hồ sơ tác giả</h3>
+                    <ul class="profile-list">
+                        <li><strong>Họ và tên:</strong> <span id="about-name">Ánh Linh</span></li>
+                        <li><strong>Ngày sinh:</strong> <span id="about-dob">Chưa cập nhật</span></li>
+                        <li><strong>Quê quán:</strong> <span id="about-hometown">Chưa cập nhật</span></li>
+                        <li><strong>Persona:</strong> <span id="about-persona">Weaver</span></li>
+                        <li><strong>Châm ngôn:</strong> <span id="about-quote" style="font-style: italic;">"Cứ đam mê, cứ dại khờ ✨"</span></li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class="intro-box">
+                <h3>📝 Đôi dòng tâm sự</h3>
+                <p id="about-intro">Xin chào, mình là Ánh Linh - một lập trình viên kiêm nhà văn với tình yêu to bự dành cho thế giới sáng tạo.</p>
+                <p id="about-hobbies">Sở thích: Đam mê Hololive (đặc biệt là bé cáo Fubuki 🌽), ca hát nhạc Nhật, cày cuốc làm game và nhào nặn cốt truyện tiểu thuyết.</p>
+            </div>
+        </section>
+
+        <section id="works">
+            <h2>Thế giới sáng tác</h2>
+            
+            <div class="works-control">
+                <button class="nav-story-btn" id="prev-story-btn">◀ Tác phẩm trước</button>
+                
+                <div class="story-info">
+                    <h3 id="story-title">Selerith</h3>
+                    <p id="story-summary">Câu chuyện bí ẩn xoay quanh lục địa Elyndra, nơi những bí mật cổ xưa đang dần được hé lộ...</p>
+                </div>
+                
+                <button class="nav-story-btn" id="next-story-btn">Tác phẩm tiếp ▶</button>
+            </div>
+
+            <div class="works-preview">
+                <div class="cover-side">
+                    <img id="story-cover" src="https://via.placeholder.com/220x320/aae0ec/4a3b40?text=Bìa+Selerith" alt="Bìa truyện">
+                    <p class="click-hint">(Bấm vào bìa hoặc tên truyện để xem tất cả chương)</p>
+                </div>
+                
+                <div class="demo-chapters">
+                    <h4>📖 Đọc thử ngẫu nhiên:</h4>
+                    <div class="chapter-grid">
+                        <button class="chapter-btn">Chương 1: Khởi đầu</button>
+                        <button class="chapter-btn">Chương 7: Dấu vết</button>
+                        <button class="chapter-btn">Chương 15: Chạm trán</button>
+                        <button class="chapter-btn">Chương 22: Bí mật</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="works-wiki">
+                <h4>🔮 Bách khoa toàn thư</h4>
+                <p class="click-hint">(Bấm vào các tệp tài liệu dưới đây để mở khóa thông tin)</p>
+                
+                <div class="wiki-grid">
+                    <button class="wiki-file-btn character-file">
+                        <span class="file-icon">🗂️</span>
+                        <span class="file-name">Hồ sơ: Mimi Lynxcott</span>
+                    </button>
+                    
+                    <button class="wiki-file-btn world-file">
+                        <span class="file-icon">📜</span>
+                        <span class="file-name">Tài liệu: Lục địa Elyndra</span>
+                    </button>
+                    <button class="wiki-file-btn world-file">
+                        <span class="file-icon">📜</span>
+                        <span class="file-name">Tài liệu: Vương quốc Vornath</span>
+                    </button>
+                    <button class="wiki-file-btn world-file">
+                        <span class="file-icon">📜</span>
+                        <span class="file-name">Ghi chép: Kỹ năng Buff</span>
+                    </button>
+                    <button class="wiki-file-btn world-file">
+                        <span class="file-icon">📜</span>
+                        <span class="file-name">Ghi chép: Áo choàng Fuyuki</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Trạm không gian công nghệ</h2>
+            <p class="click-hint">(Bấm vào các bức tranh trưng bày để xem video/ảnh Demo nha)</p>
+
+            <div class="project-showcase">
+                <div class="project-info">
+                    <h3>🤖 AI Companion: Mochi 2.0</h3>
+                    <p>Dự án phát triển trợ lý ảo cá nhân với trí nhớ dài hạn, mang đến những cuộc trò chuyện sinh động và chân thực nhất.</p>
+                </div>
+                <div class="project-gallery">
+                    <button class="project-img-btn">
+                        <img src="https://via.placeholder.com/400x220/fff0f3/4a3b40?text=Tranh+Mochi+2.0" alt="Mochi 2.0">
+                    </button>
+                </div>
+            </div>
+
+            <div class="project-showcase reversed">
+                <div class="project-info">
+                    <h3>🎮 Góc Modding: L4D2 x Fubuki</h3>
+                    <p>Dự án thay thế hệ thống âm thanh nhân vật trong Left 4 Dead 2 bằng những đoạn voice siêu kawaii của Shirakami Fubuki.</p>
+                </div>
+                <div class="project-gallery">
+                    <button class="project-img-btn">
+                        <img src="https://via.placeholder.com/400x220/aae0ec/4a3b40?text=Tranh+L4D2+Mod" alt="L4D2 Mod">
+                    </button>
+                </div>
+            </div>
+
+            <div class="project-showcase">
+                <div class="project-info">
+                    <h3>💻 Thực hành Web & Script</h3>
+                    <p>Nơi lưu giữ những đoạn mã rực rỡ và các trang web mini được xây dựng trong quá trình học tập lập trình.</p>
+                </div>
+                <div class="project-gallery">
+                    <button class="project-img-btn">
+                        <img src="https://via.placeholder.com/400x220/fff275/4a3b40?text=Tranh+Code+Web" alt="Các dự án khác">
+                    </button>
+                </div>
+            </div>
+
+            <div class="modal" id="demo-modal" style="display: none;">
+                <div class="modal-content project-modal">
+                    <span class="close-btn">&times;</span>
+                    <h3 id="modal-project-title">Tên dự án Demo</h3>
+                    
+                    <div class="demo-media">
+                        <img src="https://via.placeholder.com/700x400/eeeeee/4a3b40?text=Khu+vực+chiếu+Video/Ảnh" alt="Khu vực Demo">
+                    </div>
+                    
+                    <a href="#" class="demo-link-btn" id="modal-project-link">🔗 Khám phá ngay</a>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="gallery">
+            <h2>Kho báu kỷ niệm</h2>
+
+            <div class="gallery-top-row" id="gallery-image-row">
+                
+                <div class="gallery-collected">
+                    <h3>✨ Ảnh sưu tầm</h3>
+                    <p class="click-hint">(Sắp xếp lộn xộn đầy nghệ thuật nha)</p>
+                    
+                    <div class="masonry-grid" id="collected-images-grid">
+                        <div class="masonry-item square"><img src="https://via.placeholder.com/300x300/ffb7c5/ffffff?text=Ảnh+Vuông" alt="Vuông"></div>
+                        <div class="masonry-item tall"><img src="https://via.placeholder.com/300x450/aae0ec/ffffff?text=Ảnh+Dọc" alt="Dọc"></div>
+                        <div class="masonry-item wide"><img src="https://via.placeholder.com/450x300/fff275/4a3b40?text=Ảnh+Ngang" alt="Ngang"></div>
+                        <div class="masonry-item square"><img src="https://via.placeholder.com/300x300/e6e6fa/4a3b40?text=Ảnh+Vuông+2" alt="Vuông 2"></div>
+                    </div>
+                </div>
+
+                <div class="gallery-artwork" id="artwork-container">
+                    <h3>🎨 Góc tự vẽ</h3>
+                    <p class="click-hint">(Nơi trưng bày tác phẩm của Ánh Linh)</p>
+                    
+                    <div class="artwork-grid" id="artwork-images-grid">
+                        <div class="artwork-item"><img src="https://via.placeholder.com/300x300/ffc0cb/ffffff?text=Ảnh+Tự+Vẽ+1" alt="Tự vẽ 1"></div>
+                        <div class="artwork-item"><img src="https://via.placeholder.com/300x300/ffc0cb/ffffff?text=Ảnh+Tự+Vẽ+2" alt="Tự vẽ 2"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="gallery-video-section">
+                <h3>🎬 Rạp chiếu mini</h3>
+                <p class="click-hint">(Bấm vào hình để xem video ngẫu nhiên nà)</p>
+                
+                <div class="video-grid" id="video-grid">
+                    <div class="video-item">
+                        <img src="https://via.placeholder.com/350x200/dddddd/4a3b40?text=Thumbnail+Video+1" alt="Video 1">
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="video-item">
+                        <img src="https://via.placeholder.com/350x200/dddddd/4a3b40?text=Thumbnail+Video+2" alt="Video 2">
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="video-item">
+                        <img src="https://via.placeholder.com/350x200/dddddd/4a3b40?text=Thumbnail+Video+3" alt="Video 3">
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="video-item">
+                        <img src="https://via.placeholder.com/350x200/dddddd/4a3b40?text=Thumbnail+Video+4" alt="Video 4">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="facebook">
+            <h2>Nhật ký Facebook</h2>
+            <p class="click-hint">(Bấm vào bài viết bất kỳ để xem trước nà)</p>
+
+            <div class="fb-layout">
+                <div class="fb-profile">
+                    <div class="fb-cover">
+                        <img src="https://via.placeholder.com/400x150/ffb7c5/ffffff?text=Ảnh+Bìa" alt="Cover FB">
+                    </div>
+                    <div class="fb-avatar-container">
+                        <img src="https://via.placeholder.com/100x100/aae0ec/4a3b40?text=Avatar" class="fb-avatar" alt="Avatar FB">
+                    </div>
+                    <div class="fb-info">
+                        <h3 class="fb-name" id="fb-page-name">Ánh Linh</h3>
+                        <p class="fb-bio" id="fb-page-bio">Lập trình viên mộng mơ & Nhà văn tập sự ✨</p>
+                        <button class="fb-follow-btn">👍 Theo dõi Page</button>
+                    </div>
+                </div>
+
+                <div class="fb-feed">
+                    <h4>📰 Bảng tin mới nhất</h4>
+                    
+                    <div class="fb-posts-grid">
+                        <div class="fb-post-card">
+                            <div class="fb-post-header">
+                                <div class="fb-post-avatar-small"></div>
+                                <div class="fb-post-author">
+                                    <strong>Ánh Linh</strong>
+                                    <span>2 giờ trước • 🌎</span>
+                                </div>
+                            </div>
+                            <p class="fb-post-content">Hôm nay code xong cái giao diện web ưng ý quá đi mất! 🌸 Mọi người ngóng chờ nha!</p>
+                        </div>
+
+                        <div class="fb-post-card">
+                            <div class="fb-post-header">
+                                <div class="fb-post-avatar-small"></div>
+                                <div class="fb-post-author">
+                                    <strong>Ánh Linh</strong>
+                                    <span>Hôm qua • 🌎</span>
+                                </div>
+                            </div>
+                            <p class="fb-post-content">Đang lên ý tưởng mới cho bộ truyện. Elyndra chuẩn bị đón bão rồi đây... ✍️</p>
+                        </div>
+
+                        <div class="fb-post-card">
+                            <div class="fb-post-header">
+                                <div class="fb-post-avatar-small"></div>
+                                <div class="fb-post-author">
+                                    <strong>Ánh Linh</strong>
+                                    <span>3 ngày trước • 🌎</span>
+                                </div>
+                            </div>
+                            <p class="fb-post-content">Vừa test xong tính năng mới cho bé Mochi 2.0 nè! AI bây giờ thông minh quá trời! 🤖</p>
+                        </div>
+
+                        <div class="fb-post-card pinned-post">
+                            <div class="fb-pin-badge">📌 Bài viết đã ghim</div>
+                            <div class="fb-post-header">
+                                <div class="fb-post-avatar-small"></div>
+                                <div class="fb-post-author">
+                                    <strong>Ánh Linh</strong>
+                                    <span>1 tháng trước • 🌎</span>
+                                </div>
+                            </div>
+                            <p class="fb-post-content">Tổng hợp link đọc truyện và các dự án của mình tại đây nhé! Cảm ơn mọi người đã ủng hộ! 👇</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="fb-post-modal" style="display: none;">
+                <div class="modal-content fb-modal-content">
+                    <span class="close-btn" id="close-fb-btn">&times;</span>
+                    <h3>📱 Xem trước bài viết</h3>
+                    
+                    <div id="fb-modal-body" class="fb-modal-body">
+                        </div>
+                    
+                    <a href="#" class="demo-link-btn" id="go-to-fb-btn">Bay sang Facebook thả tim 💙</a>
+                </div>
+            </div>
+            
+        </section>
+
+        <section id="links">
+            <h2>Trạm kết nối</h2>
+            <p class="click-hint">(Nơi mở ra những cánh cửa thần kỳ khác của Ánh Linh 🚪)</p>
+
+            <div class="links-container">
+                <a href="#" class="social-link-btn">
+                    <span class="link-icon">📘</span>
+                    <span class="link-text">Trang Facebook Cá Nhân</span>
+                </a>
+                
+                <a href="#" class="social-link-btn">
+                    <span class="link-icon">🐙</span>
+                    <span class="link-text">Kho code Github</span>
+                </a>
+                
+                <a href="#" class="social-link-btn">
+                    <span class="link-icon">▶️</span>
+                    <span class="link-text">Kênh Youtube cover nhạc Nhật</span>
+                </a>
+
+                <a href="#" class="social-link-btn">
+                    <span class="link-icon">✍️</span>
+                    <span class="link-text">Dự án Blog Chinouitive</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 3. THƯ MỤC ỨNG DỤNG CUỐI TRANG -->
+    <footer id="app-footer">
+        <div class="app-grid-container">
+            <a href="#home" class="app-icon">🏠 Trang chủ</a>
+            <a href="#about" class="app-icon">👤 Về mình</a>
+            <a href="#works" class="app-icon">📖 Sáng tác</a>
+            <a href="#projects" class="app-icon">💻 Dự án</a>
+            <a href="#gallery" class="app-icon">🖼️ Bộ sưu tập</a>
+            <a href="#facebook" class="app-icon">📱 Facebook</a>
+            <a href="#links" class="app-icon">🔗 Trạm liên kết</a>
+        </div>
+    </footer>
+
+    <div id="links-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn" id="close-links-btn">&times;</span>
+            <h2>Trạm Kết Nối 🌐</h2>
+            <ul id="dynamic-links-list"></ul>
+        </div>
+    </div>
+
+    <div class="modal" id="custom-edit-modal" style="display: none;">
+            <div class="modal-content edit-modal-content">
+                <span class="close-btn" id="close-edit-btn">&times;</span>
+                <h3 id="edit-modal-title">✏️ Chỉnh sửa thông tin</h3>
+                <p id="edit-modal-desc" style="font-size: 14px; color: #8c7379; margin-bottom: 15px;">Chị nhập nội dung mới vào ô bên dưới nha:</p>
+                
+                <input type="text" id="edit-modal-input" class="edit-input-box" placeholder="Nhập ở đây nè...">
+                
+            <div class="edit-btn-group">
+                <button class="edit-btn cancel-btn" id="cancel-edit-btn">❌ Hủy</button>
+                <button class="edit-btn save-btn" id="save-edit-btn">💾 Lưu lại</button>
+            </div>
+        </div>
+    </div>
+    
+    <button id="admin-toggle-btn" class="admin-gear-btn">⚙️</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
